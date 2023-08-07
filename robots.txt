@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://haldunbalim.github.io/haldunbalim.github.io/sitemap.xml
+Sitemap: https://haldunbalim.github.io/sitemap.xml
