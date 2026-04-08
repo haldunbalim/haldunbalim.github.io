@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Robotics, Systems and Control M.Sc. Candidate
+subtitle: Electrical Engineering Ph.D. Candidate
 
 profile:
   align: right
