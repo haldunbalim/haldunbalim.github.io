@@ -1,0 +1,17 @@
+{%- comment -%}
+  Author list for one paper. Usage: {% include authors.html authors=pub.authors %}
+  Bolds the site owner, links names found in _data/people.yml, keeps * / † markers.
+{%- endcomment -%}
+{%- for a in include.authors -%}
+  {%- assign key = a | remove: '*' | remove: '†' -%}
+  {%- assign mark = a | remove: key -%}
+  {%- assign url = site.data.people[key] -%}
+  {%- if key == site.data.profile.name -%}
+    <strong>{{ a }}</strong>
+  {%- elsif url -%}
+    <a href="{{ url }}">{{ key }}</a>{{ mark }}
+  {%- else -%}
+    {{ a }}
+  {%- endif -%}
+  {%- unless forloop.last %}, {% endunless -%}
+{%- endfor -%}

@@ -20,21 +20,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 🛎️
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2.2'
         bundler-cache: true
-    - name: Install and Build 🔧
+    - name: Build 🔧
       run: |
-        pip3 install --upgrade jupyter
-        npm install -g mermaid.cli
         export JEKYLL_ENV=production
         bundle exec jekyll build
+        touch _site/.nojekyll   # gh-pages holds the built site; stop Pages from running Jekyll on it again
     - name: Deploy 🚀
       if: github.event_name != 'pull_request'
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: _site
-

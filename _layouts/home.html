@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+{%- assign p = site.data.profile -%}
+{%- capture bio %}{% include bio.md %}{% endcapture -%}
+<body>
+<main class="page">
+
+  <section class="intro">
+    <div class="intro-text">
+      <h1 class="name">{{ p.name }}</h1>
+      {{ bio | markdownify }}
+      <nav class="social">
+        {%- for l in p.links -%}
+          <a href="{{ l.url | relative_url }}">{% include icon.html name=l.icon %}{{ l.label }}</a>
+          {%- unless forloop.last %}<span class="sep">/</span>{% endunless -%}
+        {%- endfor -%}
+      </nav>
+    </div>
+    <div class="intro-photo">
+      <img src="{{ p.photo | relative_url }}" alt="Photo of {{ p.name }}">
+    </div>
+  </section>
+
+  <section>
+    <h2>Recent News</h2>
+    <div class="news">
+      {%- for n in site.data.news %}
+      <div class="news-item">
+        <span class="news-date">{{ n.date | date: "%b %Y" }}</span>
+        <span class="news-text">{{ n.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section>
+    <div class="pubs-head">
+      <h2>Publications</h2>
+      <div class="filter" role="group" aria-label="Which publications to show">
+        <button type="button" data-show="selected" aria-pressed="true">Selected</button>
+        <button type="button" data-show="all" aria-pressed="false">All</button>
+      </div>
+    </div>
+    <p class="legend">* equal contribution &nbsp;&middot;&nbsp; † equal advising</p>
+  </section>
+
+  <section class="pubs" data-show="selected">
+    {%- for pub in site.data.publications %}
+    {%- assign first = pub.links | first %}
+    <div class="pub{% if pub.highlight %} highlight{% endif %}{% unless pub.selected %} not-selected{% endunless %}">
+      <div class="pub-img">
+        {%- if pub.image %}<img src="{{ '/assets/img/pubs/' | append: pub.image | relative_url }}" alt="" loading="lazy">{% endif -%}
+      </div>
+      <div class="pub-text">
+        {%- if first %}<a class="papertitle" href="{{ first[1] | relative_url }}">{{ pub.title }}</a>
+        {%- else %}<span class="papertitle">{{ pub.title }}</span>{% endif %}<br>
+        {% include authors.html authors=pub.authors %}<br>
+        <em>{{ pub.venue }}</em>, {{ pub.year }}<br>
+        {%- if pub.award %}<span class="award">{{ pub.award | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span><br>{% endif %}
+        {%- if pub.abstract or pub.tldr %}
+        <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-{{ pub.id }}">abstract</button>
+        {%- if pub.links %} / {% endif %}
+        {%- endif %}
+        {% include pub-links.html pub=pub %}
+        {%- if pub.abstract or pub.tldr %}
+        <div class="abstract" id="abs-{{ pub.id }}" hidden>
+          {%- if pub.tldr %}<div class="tldr"><strong>TL;DR</strong> {{ pub.tldr }}</div>{% endif %}
+          {%- if pub.abstract %}<div class="abstract-body">{{ pub.abstract }}</div>{% endif %}
+        </div>
+        {%- endif %}
+      </div>
+    </div>
+    {%- endfor %}
+  </section>
+
+  <section>
+    <p class="more-scholar">More on <a href="{{ p.scholar }}">Google Scholar</a> &rarr;</p>
+  </section>
+
+  <footer>
+    Website design adapted from <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a>.
+  </footer>
+
+</main>
+
+<script>
+  // Abstract toggles
+  document.querySelectorAll('button.linklike[aria-controls]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var box = document.getElementById(btn.getAttribute('aria-controls'));
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      box.hidden = open;
+    });
+  });
+
+  // Selected / All filter
+  var list = document.querySelector('.pubs');
+  document.querySelectorAll('.filter button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      list.dataset.show = btn.dataset.show;
+      document.querySelectorAll('.filter button').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+    });
+  });
+</script>
+</body>
+</html>

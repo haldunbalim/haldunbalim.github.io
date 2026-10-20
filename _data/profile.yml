@@ -1,0 +1,24 @@
+name: Haldun Balim
+tagline: Ph.D. Candidate, Harvard SEAS
+photo: /assets/img/profile.jpg            # full portrait, shown with rounded corners
+email: hbalim@fas.harvard.edu
+
+# Shown in this order. `icon` must be one of the names in _includes/icon.html.
+links:
+  - label: Email
+    url: mailto:hbalim@fas.harvard.edu
+    icon: email
+  - label: Scholar
+    url: https://scholar.google.com/citations?user=ELPn5DsAAAAJ
+    icon: scholar
+  - label: GitHub
+    url: https://github.com/haldunbalim
+    icon: github
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/haldun-bal%C4%B1m/
+    icon: linkedin
+  - label: X
+    url: https://x.com/haldunbalim1
+    icon: x
+
+scholar: https://scholar.google.com/citations?user=ELPn5DsAAAAJ

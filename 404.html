@@ -1,9 +1,16 @@
 ---
-layout: page
 permalink: /404.html
-title: "Page not found"
-description: "Looks like there has been a mistake. Nothing exists here."
-redirect: true
 ---
-
-<p>You will be redirected to the main page within 3 seconds. If not redirected, please go back to the <a href="{{ site.baseurl }}/">home page</a>.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found</title>
+  <style>body { font: 15px/1.6 system-ui, sans-serif; max-width: 560px; margin: 80px auto; padding: 0 16px; }</style>
+</head>
+<body>
+  <h1>Page not found</h1>
+  <p>Back to <a href="{{ '/' | relative_url }}">{{ site.data.profile.name }}</a>.</p>
+</body>
+</html>

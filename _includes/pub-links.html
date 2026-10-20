@@ -1,0 +1,8 @@
+{%- comment -%}
+  Slash-separated link row for one paper. Usage: {% include pub-links.html pub=pub sep=" / " %}
+{%- endcomment -%}
+{%- assign sep = include.sep | default: " / " -%}
+{%- for l in include.pub.links -%}
+  <a href="{{ l[1] | relative_url }}">{{ l[0] }}</a>
+  {%- unless forloop.last -%}{{ sep }}{%- endunless -%}
+{%- endfor -%}

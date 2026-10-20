@@ -1,0 +1,46 @@
+# Newest first. `text` is Markdown. Only month and year of `date` are shown.
+
+- date: 2026-10-13
+  text: "[Generative Trajectory Planning (GTP)](https://haldunbalim.github.io/GTPlanning/) will appear at **NeurIPS 2026**! Paper, code and models are out."
+
+- date: 2026-07-12
+  text: "New preprint with Haitong Ma, Yang Hu, Bo Dai and Na Li: [a single diffusion-policy controller](https://arxiv.org/abs/2607.10892) for multi-task block pushing, with zero-shot sim-to-real transfer."
+
+- date: 2026-07-08
+  text: "[MPDiffuser](https://haldunbalim.github.io/MPDiffuser/) appeared at **ICML 2026** in Seoul and was featured in Nebius.Science's [ICML 2026: Papers That Matter](https://nebius.science/stories/icml-papers-that-matter)."
+
+- date: 2026-06-01
+  text: "[Diffusion-MPC](https://arxiv.org/abs/2510.04234) for flexible legged locomotion was presented at **ICRA 2026**. Read the [Harvard SEAS story](https://seas.harvard.edu/news/ai-powered-control-system-robots-legs)."
+
+- date: 2026-05-08
+  text: "New preprint with Yuyang Zhang and Na Li: [decentralized diffusion policy learning](https://arxiv.org/abs/2605.07101) for exploration in cooperative multi-agent RL."
+
+- date: 2025-12-09
+  text: "New preprint: [MPDiffuser](https://haldunbalim.github.io/MPDiffuser/), compositional diffusion sampling for predictive control in offline decision making."
+
+- date: 2025-12-09
+  text: "[A Model-Based Approach to Imitation Learning through Multi-Step Predictions](https://arxiv.org/abs/2504.13413) appeared at **IEEE CDC 2025**."
+
+- date: 2025-10-05
+  text: "New preprint with Runhan Huang, Heng Yang and Yilun Du: [Diffusion-MPC](https://arxiv.org/abs/2510.04234) for flexible legged locomotion."
+
+- date: 2024-12-01   # TODO check the month: taken from the L-CSS DOI, not the acceptance email
+  text: "[Stochastic Data-Driven Predictive Control](https://arxiv.org/abs/2409.10405) accepted to **IEEE Control Systems Letters**."
+
+- date: 2024-09-01
+  text: "Started my Ph.D. at [Harvard SEAS](https://www.seas.harvard.edu/), advised by Na Li and Yilun Du."
+
+- date: 2024-06-01
+  text: "Finished my M.Sc. in Robotics, Systems and Control at **ETH Zürich**!"
+
+- date: 2023-06-12
+  text: "[Koopman-inspired Implicit Backward Reachable Sets](https://haldunbalim.github.io/KoopmanBRS-page/) published in **IEEE Control Systems Letters**."
+
+- date: 2023-06-01
+  text: "[EFE: End-to-End Frame-to-Gaze Estimation](https://arxiv.org/abs/2305.05526) appeared at the **CVPR 2023** GAZE workshop."
+
+- date: 2021-09-01
+  text: "Started my M.Sc. in Robotics, Systems and Control at [ETH Zürich](https://ethz.ch/en.html)."
+
+- date: 2021-06-01
+  text: "Graduated from [Koç University](https://www.ku.edu.tr/en/) with a double B.Sc. in Computer Science and Mechanical Engineering."

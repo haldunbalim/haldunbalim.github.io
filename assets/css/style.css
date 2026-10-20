@@ -1,0 +1,92 @@
+/* Jon Barron-style homepage plus icon links, a left-ruled news feed,
+   expandable TL;DR + abstract per paper and a Selected / All filter. */
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #222;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+a { color: #1772d0; text-decoration: none; }
+a:hover, a:focus { color: #f09228; }
+
+.page { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+section { padding: 0 2.5%; margin: 18px 0; }
+
+h2 { font-size: 22px; font-weight: 400; margin: 0; }
+
+/* ---- intro ---- */
+.intro { display: flex; gap: 5%; align-items: center; margin-top: 24px; }
+.intro-text { flex: 0 1 60%; }
+.intro-photo { flex: 0 1 35%; }
+.intro-photo img { width: 100%; border-radius: 16px; display: block; }
+.name { font-size: 32px; font-weight: 400; text-align: center; margin: 0 0 14px; }
+
+.social { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; margin-top: 12px; }
+.social a { display: inline-flex; align-items: center; gap: 4px; padding: 4px 0; }
+.social .sep { color: #999; margin: 0 2px; user-select: none; }
+.icon { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+
+/* ---- news: green rule on the left, scrolls after a few items ---- */
+.news {
+  margin-top: 10px;
+  max-height: 240px;
+  overflow-y: auto;
+  border-left: 3px solid #2e8b57;
+  padding-left: 16px;
+}
+.news-item { display: flex; gap: 12px; align-items: baseline; padding: 6px 0; }
+.news-item + .news-item { border-top: 1px solid #f0f0f0; }
+.news-date { min-width: 72px; flex-shrink: 0; white-space: nowrap; font-size: 13px; font-weight: 700; color: #1a6b1a; }
+.news-text { font-size: 13px; color: #333; }
+
+/* ---- publications ---- */
+.pubs-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.legend { font-size: 12px; color: #888; margin: 4px 0 0; }
+
+.filter { display: inline-flex; border: 1px solid #d0d7de; border-radius: 999px; overflow: hidden; }
+.filter button {
+  font: inherit; font-size: 13px; padding: 4px 14px; border: 0; background: #fff; color: #444; cursor: pointer;
+}
+.filter button[aria-pressed="true"] { background: #2e8b57; color: #fff; }
+
+.pubs { padding: 0; }
+.pubs[data-show="selected"] .not-selected { display: none; }
+.pub { display: flex; gap: 4%; align-items: flex-start; padding: 16px 2.5%; }
+.pub.highlight { background: #ffffd0; }
+.pub-img { flex: 0 0 26%; padding-top: 2px; }
+.pub-img img { width: 100%; display: block; border-radius: 4px; }
+.pub-text { flex: 1; min-width: 0; }
+.papertitle { font-weight: 700; }
+.award { color: #d0021b; font-weight: 700; }
+.award a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+.linklike { font: inherit; color: #1772d0; background: none; border: 0; padding: 0; cursor: pointer; }
+.linklike:hover, .linklike:focus { color: #f09228; }
+.linklike[aria-expanded="true"] { color: #f09228; }
+
+.abstract {
+  margin-top: 10px;
+  background: #fdfdfd;
+  border-left: 3px solid #2e8b57;
+  border-radius: 0 4px 4px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.tldr { background: #f0f7f0; padding: 10px 14px; }
+.abstract-body { padding: 10px 14px; color: #333; }
+
+.more-scholar { margin: 0; }
+
+footer { text-align: right; font-size: 12px; color: #777; padding: 24px 2.5% 32px; }
+
+@media (max-width: 640px) {
+  .intro { flex-direction: column-reverse; }
+  .intro-photo { width: 55%; max-width: 220px; }
+  .pub { flex-direction: column; }
+  .pub-img { flex-basis: auto; width: 100%; }
+  .pub-img img { max-width: 360px; margin: 0 auto 8px; }
+}

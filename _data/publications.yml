@@ -1,0 +1,324 @@
+# Newest first.
+#
+#   authors   names as they should print. Append * for equal contribution, † for equal advising.
+#             Names listed in people.yml become links; the site owner's name is bolded.
+#   venue     short venue name, printed in italics before the year
+#   image     file in assets/img/pubs/ (optional)
+#   selected  true -> shown by default; the rest appear under the "All" filter
+#   highlight true -> yellow background (use sparingly)
+#   award     award / recognition line (optional, Markdown)
+#   links     label: url, printed in this order
+#   tldr      one sentence (optional); with abstract (optional) it fills the "abstract" toggle
+
+- id: gtp
+  title: Model-Based Online Decision Making via Generative Trajectory Planning
+  authors: [Haldun Balim, Yilun Du†, Na Li†]
+  venue: NeurIPS
+  year: 2026
+  image: gtp.jpg
+  selected: true
+  highlight: true
+  links:
+    paper: https://arxiv.org/abs/2610.18677
+    project page: https://haldunbalim.github.io/GTPlanning/
+    code: https://github.com/haldunbalim/GTPlanning
+    models: https://huggingface.co/haldunbalim/GTPlanning
+  tldr: >-
+    A diffusion prior over action sequences, used as a proposal distribution and refined with learned dynamics,
+    reward and value models, gives trajectory-level planning without solving a high-dimensional optimization at every step.
+  abstract: >-
+    Online decision-making faces a tension between efficient inference and long-horizon reasoning. Value-based
+    methods rely on short-horizon bootstrapping that limits the propagation of long-term information, while
+    trajectory optimization methods plan explicitly but must solve a high-dimensional optimization problem at every
+    decision step. We propose Generative Trajectory Planning (GTP), a model-based framework that addresses this
+    tension by learning a generative model as a proposal distribution over action sequences. Instead of optimizing
+    sequences from scratch, GTP samples candidate sequences from a diffusion prior and refines them using learned
+    dynamics, reward, and value models, enabling efficient trajectory-level reasoning. Across continuous control and
+    long-horizon manipulation tasks, GTP matches or exceeds state-of-the-art model-free, diffusion-policy, and
+    model-based baselines, and remains stable in regimes where strong baselines degrade. Our results suggest that
+    generative models are best understood not as policies, but as structured proposal distributions for planning,
+    offering a new perspective on how to integrate generative modeling with model-based decision-making.
+
+- id: mpdiffuser
+  title: Model-Based Diffusion Sampling for Predictive Control in Offline Decision Making
+  authors: [Haldun Balim, Na Li, Yilun Du]
+  venue: ICML
+  year: 2026
+  image: mpdiffuser.jpg
+  selected: true
+  highlight: true
+  award: "Featured in Nebius.Science [ICML 2026: Papers That Matter](https://nebius.science/stories/icml-papers-that-matter)"
+  links:
+    paper: https://proceedings.mlr.press/v306/balim26a.html
+    arXiv: https://arxiv.org/abs/2512.08280
+    project page: https://haldunbalim.github.io/MPDiffuser/
+    code: https://github.com/haldunbalim/MPDiffuser
+  tldr: >-
+    Interleaving a diffusion planner with a diffusion dynamics model during sampling keeps generated trajectories
+    both task-aligned and dynamically feasible, from D4RL and DSRL benchmarks to a real quadruped.
+  abstract: >-
+    Offline decision-making via diffusion models often produces trajectories that are misaligned with system
+    dynamics, limiting their reliability for control. We propose Model Predictive Diffuser (MPDiffuser), a
+    compositional diffusion framework that combines a diffusion planner with a dynamics diffusion model to generate
+    task-aligned and dynamically plausible trajectories. MPDiffuser interleaves planner and dynamics updates during
+    sampling, progressively correcting feasibility while preserving task intent. A lightweight ranking module then
+    selects trajectories that best satisfy task objectives. The compositional design improves sample efficiency and
+    adaptability by enabling the dynamics model to leverage diverse and previously unseen data independently of the
+    planner. Empirically, we demonstrate consistent improvements over prior diffusion-based methods on unconstrained
+    (D4RL) and constrained (DSRL) benchmarks, and validate practicality through deployment on a real quadrupedal robot.
+
+- id: ddpl
+  title: Decentralized Diffusion Policy Learning for Enhanced Exploration in Cooperative Multi-agent Reinforcement Learning
+  authors: [Yuyang Zhang, Haldun Balim, Na Li]
+  venue: arXiv preprint
+  year: 2026
+  image: ddpl.jpg
+  selected: true
+  links:
+    arXiv: https://arxiv.org/abs/2605.07101
+  tldr: >-
+    Gaussian policies cripple exploration in decentralized MARL as the number of agents grows; giving each agent a
+    diffusion policy, trained online with importance sampling score matching, restores multi-modal exploration.
+  abstract: >-
+    Cooperative multi-agent reinforcement learning (MARL) involves complex agent interactions and requires effective
+    exploration strategies. A prominent class of MARL algorithms, decentralized softmax policy gradient (DecSPG),
+    addresses this through energy-based policy updates. In practice, however, such energy-based policies are
+    intractable to maintain and are commonly projected onto the Gaussian policy class. In this work, we show that the
+    limited expressiveness of Gaussian policies severely hinders exploration in DecSPG, and this limitation worsens as
+    the number of agents grows. To address this issue, we propose decentralized diffusion policy learning (DDPL),
+    which parameterizes each agent's policy with a denoising diffusion probabilistic model, an expressive generative
+    model that captures multi-modal action distributions for enhanced exploration. DDPL enables efficient online
+    training of diffusion policies via importance sampling score matching (ISSM), a novel training method with
+    theoretical guarantee. We evaluate DDPL on representative continuous-action MARL benchmarks, including
+    multi-agent particle environment, multi-agent MuJoCo, IsaacLab, and JAX-reimplemented StarCraft multi-agent
+    challenge, and observe consistently improved performance.
+
+- id: block-pushing
+  title: A Single Diffusion-Policy Controller for Multi-Task Block Pushing with Zero-Shot Sim-to-Real Transfer
+  authors: [Haitong Ma, Haldun Balim, Yang Hu, Bo Dai, Na Li]
+  venue: arXiv preprint
+  year: 2026
+  image: block-pushing.jpg
+  selected: true
+  links:
+    arXiv: https://arxiv.org/abs/2607.10892
+  tldr: >-
+    One diffusion policy, trained from scratch with RL using reverse curricula and object-centric observations,
+    pushes blocks of many shapes and transfers zero-shot to a real robot.
+  abstract: >-
+    Diffusion policies have shown promising empirical performance in representing and learning complex maneuvers for
+    robots using behavior cloning (BC). In this paper, we explore training diffusion policies from scratch using
+    reinforcement learning (RL) for multi-task robotic manipulation. Specifically, we aim to train a single diffusion
+    policy for block-pushing tasks with multiple shapes. The proposed framework features a simple policy loss
+    function, which is a reweighted evidence lower bound used in BC-based diffusion policy training and can seamlessly
+    serve as the policy learning module in RL algorithms. To address the exploration challenges arising from the
+    absence of demonstrations, we incorporate reverse curriculum generation and objective-centric representations.
+    Combined with the expressiveness of diffusion policies, our design supports learning of multi-task block-pushing
+    policies in our sparse-reward simulation setting. We further evaluate whether the trained diffusion policy
+    transfers in zero-shot to real-world tasks under varying environmental conditions including goal positions, block
+    shapes, block weights and surface friction, providing evidence that this pipeline can transfer to our real-world
+    block-pushing setup under the tested variations.
+
+- id: diffusion-mpc
+  title: Flexible Locomotion Learning with Diffusion Model Predictive Control
+  authors: [Runhan Huang, Haldun Balim, Heng Yang, Yilun Du]
+  venue: ICRA
+  year: 2026
+  image: diffusion-mpc.jpg
+  selected: true
+  links:
+    arXiv: https://arxiv.org/abs/2510.04234
+    press: https://seas.harvard.edu/news/ai-powered-control-system-robots-legs
+  tldr: >-
+    A learned diffusion model serves as the dynamics prior inside MPC, so a legged robot can adapt to new rewards
+    and constraints at test time without retraining.
+  abstract: >-
+    Legged locomotion demands controllers that are both robust and adaptable, while remaining compatible with task
+    and safety considerations. However, model-free reinforcement learning (RL) methods often yield a fixed policy
+    that can be difficult to adapt to new behaviors at test time. In contrast, Model Predictive Control (MPC)
+    provides a natural approach to flexible behavior synthesis by incorporating different objectives and constraints
+    directly into its optimization process. However, classical MPC relies on accurate dynamics models, which are
+    often difficult to obtain in complex environments and typically require simplifying assumptions. We present
+    Diffusion-MPC, which leverages a learned generative diffusion model as an approximate dynamics prior for
+    planning, enabling flexible test-time adaptation through reward and constraint based optimization.
+    Diffusion-MPC jointly predicts future states and actions; at each reverse step, we incorporate reward planning
+    and impose constraint projection, yielding trajectories that satisfy task objectives while remaining within
+    physical limits. To obtain a planning model that adapts beyond imitation pretraining, we introduce an
+    interactive training algorithm for diffusion based planner: we execute our reward-and-constraint planner in
+    environment, then filter and reweight the collected trajectories by their realized returns before updating the
+    denoiser. Our design enables strong test-time adaptability, allowing the planner to adjust to new reward
+    specifications without retraining. We validate Diffusion-MPC on real world, demonstrating strong locomotion and
+    flexible adaptation.
+
+- id: predictive-il
+  title: A Model-Based Approach to Imitation Learning through Multi-Step Predictions
+  authors: [Haldun Balim, Yang Hu, Yuyang Zhang, Na Li]
+  venue: IEEE CDC
+  year: 2025
+  image: predictive-il.jpg
+  selected: true
+  links:
+    paper: https://doi.org/10.1109/CDC57313.2025.11312275
+    arXiv: https://arxiv.org/abs/2504.13413
+  tldr: >-
+    MPC-inspired imitation learning: multi-step state predictions make the learned policy robust to distribution
+    shift and measurement noise, with sample-complexity and error guarantees.
+  abstract: >-
+    Imitation learning is a widely used approach for training agents to replicate expert behavior in complex
+    decision-making tasks. However, existing methods often struggle with compounding errors and limited
+    generalization, due to the inherent challenge of error correction and the distribution shift between training
+    and deployment. In this paper, we present a novel model-based imitation learning framework inspired by model
+    predictive control, which addresses these limitations by integrating predictive modeling through multi-step
+    state predictions. Our method outperforms traditional behavior cloning numerical benchmarks, demonstrating
+    superior robustness to distribution shift and measurement noise both in available data and during execution.
+    Furthermore, we provide theoretical guarantees on the sample complexity and error bounds of our method, offering
+    insights into its convergence properties.
+
+- id: multistep
+  title: "Stochastic Data-Driven Predictive Control: Chance-Constraint Satisfaction with Identified Multi-Step Predictors"
+  authors: [Haldun Balim, Andrea Carron, Melanie N. Zeilinger, Johannes Köhler]
+  venue: IEEE Control Systems Letters (L-CSS)
+  year: 2024
+  image: multistep.jpg
+  selected: true
+  links:
+    paper: https://doi.org/10.1109/LCSYS.2024.3523238
+    arXiv: https://arxiv.org/abs/2409.10405
+    code: https://github.com/haldunbalim/MultistepPredictors
+  tldr: >-
+    Identified multi-step predictors propagate uncertainty efficiently, giving a constraint tightening that
+    guarantees chance-constraint satisfaction with less conservatism than state-of-the-art methods.
+  abstract: >-
+    We propose a novel data-driven stochastic model predictive control framework for uncertain linear systems with
+    noisy output measurements. Our approach leverages multi-step predictors to efficiently propagate uncertainty,
+    ensuring chance constraint satisfaction. In particular, we present a strategy to identify multi-step predictors
+    and quantify the associated uncertainty using a surrogate (data-driven) state space model. Then, we utilize the
+    derived distribution to formulate a constraint tightening that ensures chance constraint satisfaction despite
+    the parametric uncertainty. A numerical example highlights the reduced conservatism of handling parametric
+    uncertainty in the proposed method compared to state-of-the-art solutions.
+
+- id: d2pc
+  title: "From Data to Predictive Control: A Framework for Stochastic Linear Systems with Output Measurements"
+  authors: [Haldun Balim, Andrea Carron, Melanie N. Zeilinger, Johannes Köhler]
+  venue: arXiv preprint
+  year: 2024
+  image: d2pc.jpg
+  selected: true
+  links:
+    arXiv: https://arxiv.org/abs/2407.17277
+    code: https://github.com/haldunbalim/D2PC
+  tldr: >-
+    From input-output data to a predictive controller: EM-based identification with structural constraints,
+    uncertainty quantification, robust output-feedback synthesis and chance-constrained MPC.
+  abstract: >-
+    We introduce data to predictive control, D2PC, a framework to facilitate the design of robust and predictive
+    controllers from data. The proposed framework is designed for discrete-time stochastic linear systems with
+    output measurements and provides a principled design of a predictive controller based on data. The framework
+    builds on a parameter identification method based on the Expectation-Maximization algorithm, which incorporates
+    pre-defined structural constraints. An asymptotic approximation is leveraged to quantify the uncertainty in the
+    parameter estimates. As the main contributions, a robust control and predictive control design are proposed
+    tailored to the uncertainty characterization resulting from the identification. In particular, a strategy to
+    synthesize robust dynamic output-feedback controllers is presented. Furthermore, a predictive control scheme
+    that guarantees recursive feasibility and satisfaction of chance constraints is developed. This framework marks
+    a significant advancement in integrating data-driven models into robust and predictive control designs. We
+    demonstrate the efficacy of D2PC through a numerical example involving a 10-dimensional spring-mass-damper system.
+
+- id: transformer-filtering
+  title: Can Transformers Learn Optimal Filtering for Unknown Systems?
+  authors: [Haldun Balim*, Zhe Du*, Samet Oymak, Necmiye Ozay]
+  venue: IEEE Control Systems Letters (L-CSS)
+  year: 2023
+  image: transformer-filtering.jpg
+  selected: true
+  links:
+    paper: https://doi.org/10.1109/LCSYS.2023.3335318
+    arXiv: https://arxiv.org/abs/2308.08536
+    code: https://github.com/haldunbalim/Meta-Output-Predictor
+  tldr: >-
+    A transformer trained on many systems adapts in context to unseen ones and matches the Kalman filter on linear
+    systems; we give sample-complexity guarantees and identify where it breaks down.
+  abstract: >-
+    Transformer models have shown great success in natural language processing; however, their potential remains
+    mostly unexplored for dynamical systems. In this work, we investigate the optimal output estimation problem
+    using transformers, which generate output predictions using all the past ones. Particularly, we train the
+    transformer using various distinct systems and then evaluate the performance on unseen systems with unknown
+    dynamics. Empirically, the trained transformer adapts exceedingly well to different unseen systems and even
+    matches the optimal performance given by the Kalman filter for linear systems. In more complex settings with
+    non-i.i.d. noise, time-varying dynamics, and nonlinear dynamics like a quadrotor system with unknown parameters,
+    transformers also demonstrate promising results. To support our experimental findings, we provide statistical
+    guarantees that quantify the amount of training data required for the transformer to achieve a desired excess
+    risk. Finally, we point out some limitations by identifying two classes of problems that lead to degraded
+    performance, highlighting the need for caution when using transformers for control and estimation.
+
+- id: koopman-brs
+  title: Koopman-inspired Implicit Backward Reachable Sets for Unknown Nonlinear Systems
+  authors: [Haldun Balim, Antoine Aspeel, Zexiang Liu, Necmiye Ozay]
+  venue: IEEE Control Systems Letters (L-CSS)
+  year: 2023
+  image: koopman-brs.jpg
+  selected: true
+  links:
+    paper: https://doi.org/10.1109/LCSYS.2023.3286126
+    arXiv: https://arxiv.org/abs/2306.07113
+    project page: https://haldunbalim.github.io/KoopmanBRS-page/
+    code: https://github.com/haldunbalim/KoopmanBRS
+  tldr: >-
+    Learned Koopman over-approximations enable correct-by-construction control: backward reachable sets computed in
+    the lifted space give implicit inner approximations for the unknown nonlinear dynamics.
+  abstract: >-
+    Koopman liftings have been successfully used to learn high dimensional linear approximations for autonomous
+    systems for prediction purposes, or for control systems for leveraging linear control techniques to control
+    nonlinear dynamics. In this paper, we show how learned Koopman approximations can be used for state-feedback
+    correct-by-construction control. To this end, we introduce the Koopman over-approximation, a (possibly hybrid)
+    lifted representation that has a simulation-like relation with the underlying dynamics. Then, we prove how
+    successive application of controlled predecessor operation in the lifted space leads to an implicit backward
+    reachable set for the actual dynamics. Finally, we demonstrate the approach on two nonlinear control examples
+    with unknown dynamics.
+
+- id: efe
+  title: "EFE: End-to-End Frame-to-Gaze Estimation"
+  authors: [Haldun Balim, Seonwook Park, Xi Wang, Xucong Zhang, Otmar Hilliges]
+  venue: CVPR Workshops (GAZE)
+  year: 2023
+  image: efe.jpg
+  links:
+    paper: https://openaccess.thecvf.com/content/CVPR2023W/GAZE/html/Balim_EFE_End-to-End_Frame-To-Gaze_Estimation_CVPRW_2023_paper.html
+    arXiv: https://arxiv.org/abs/2305.05526
+  tldr: >-
+    Predict 3D gaze origin and direction directly from the raw camera frame, with no face or eye crops, at accuracy
+    comparable to crop-based methods.
+  abstract: >-
+    Despite the recent development of learning-based gaze estimation methods, most methods require one or more eye
+    or face region crops as inputs and produce a gaze direction vector as output. Cropping results in a higher
+    resolution in the eye regions and having fewer confounding factors (such as clothing and hair) is believed to
+    benefit the final model performance. However, this eye/face patch cropping process is expensive, erroneous, and
+    implementation-specific for different methods. In this paper, we propose a frame-to-gaze network that directly
+    predicts both 3D gaze origin and 3D gaze direction from the raw frame out of the camera without any face or eye
+    cropping. Our method demonstrates that direct gaze regression from the raw downscaled frame, from FHD/HD to
+    VGA/HVGA resolution, is possible despite the challenges of having very few pixels in the eye region. The
+    proposed method achieves comparable results to state-of-the-art methods in Point-of-Gaze (PoG) estimation on
+    three public gaze datasets: GazeCapture, MPIIFaceGaze, and EVE, and generalizes well to extreme camera view changes.
+
+- id: keratoconus
+  title: Automated Diagnosis of Keratoconus from Corneal Topography
+  authors: [Ayse Yildiz Tas, Murat Hasanreisoglu, Haldun Balim, Mehmet Gönen, Afsun Sahin]
+  venue: Investigative Ophthalmology & Visual Science (ARVO abstract)
+  year: 2021
+
+- id: wheelchair
+  title: "Recurrent Neural Network-Based Intention Estimation Frameworks for Power-Assisted Manual Wheelchair Users: A Feasibility Study"
+  authors: [Haldun Balim, Mahsa Khalili, Calvin Kuo, H.F. Machiel Van der Loos, Jamie F. Borisoff]
+  venue: RO-MAN Workshops
+  year: 2020
+  image: wheelchair.jpg
+  links:
+    pdf: /assets/pdf/rnn_int_det.pdf
+
+- id: fontan
+  title: In Vitro Validation of a Self-Driving Aortic-Turbine Venous-Assist Device for Fontan Patients
+  authors: [Kerem Pekkan, Ibrahim Basar Aka, Ece Tutsak, Erhan Ermek, Haldun Balim, Ismail Lazoglu, Riza Turkoz]
+  venue: The Journal of Thoracic and Cardiovascular Surgery
+  year: 2018
+  image: fontan.jpg
+  links:
+    paper: https://doi.org/10.1016/j.jtcvs.2018.02.088
