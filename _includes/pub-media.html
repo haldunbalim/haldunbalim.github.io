@@ -1,0 +1,33 @@
+{%- comment -%}
+  Thumbnail column for one paper. Usage: {% include pub-media.html pub=pub %}
+
+  `media` is a list of tiles laid out on a grid of `media_cols` columns (default 2):
+    video  path to an .mp4; a .jpg with the same name is used as its poster
+    image  path to a still (used when there is no video)
+    label  short caption drawn over the tile's corner (optional)
+    wide   true -> the tile spans the whole row
+  Videos are muted loops; the script in home.html plays them only while on screen.
+  Papers without `media` fall back to the single `image` in assets/img/pubs/.
+{%- endcomment -%}
+{%- assign pub = include.pub -%}
+{%- if pub.media -%}
+{%- assign n = pub.media | size -%}
+{%- assign cols = pub.media_cols | default: 2 -%}
+{%- if n == 1 %}{% assign cols = 1 %}{% endif -%}
+<div class="media-grid" style="--cols: {{ cols }}">
+  {%- for m in pub.media %}
+  <figure class="media-cell{% if m.wide %} wide{% endif %}">
+    {%- if m.video %}
+    <video data-autoplay muted loop playsinline preload="none"
+           src="{{ m.video | relative_url }}" poster="{{ m.video | replace: '.mp4', '.jpg' | relative_url }}"
+           {% if m.label %}aria-label="{{ m.label }}"{% endif %}></video>
+    {%- else %}
+    <img src="{{ m.image | relative_url }}" alt="{{ m.label }}" loading="lazy">
+    {%- endif %}
+    {%- if m.label %}<figcaption>{{ m.label }}</figcaption>{% endif %}
+  </figure>
+  {%- endfor %}
+</div>
+{%- elsif pub.image -%}
+<img src="{{ '/assets/img/pubs/' | append: pub.image | relative_url }}" alt="" loading="lazy">
+{%- endif -%}

@@ -52,13 +52,13 @@
     {%- assign first = pub.links | first %}
     <div class="pub{% if pub.highlight %} highlight{% endif %}{% unless pub.selected %} not-selected{% endunless %}">
       <div class="pub-img">
-        {%- if pub.image %}<img src="{{ '/assets/img/pubs/' | append: pub.image | relative_url }}" alt="" loading="lazy">{% endif -%}
+        {%- include pub-media.html pub=pub -%}
       </div>
       <div class="pub-text">
         {%- if first %}<a class="papertitle" href="{{ first[1] | relative_url }}">{{ pub.title }}</a>
         {%- else %}<span class="papertitle">{{ pub.title }}</span>{% endif %}<br>
         {% include authors.html authors=pub.authors %}<br>
-        <em>{{ pub.venue }}</em>, {{ pub.year }}<br>
+        <em>{{ pub.venue }}</em>, {{ pub.year }}{% if pub.status %} <span class="status">({{ pub.status }})</span>{% endif %}<br>
         {%- if pub.award %}<span class="award">{{ pub.award | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span><br>{% endif %}
         {%- if pub.abstract or pub.tldr %}
         <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-{{ pub.id }}">abstract</button>
@@ -107,6 +107,23 @@
       });
     });
   });
+
+  // Paper clips: play while on screen, pause when scrolled away. With reduced motion
+  // they stay on their poster frame and play on click instead.
+  var clips = document.querySelectorAll('video[data-autoplay]');
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  if (still || !('IntersectionObserver' in window)) {
+    clips.forEach(function (v) {
+      v.addEventListener('click', function () { v.paused ? play(v) : v.pause(); });
+      if (!still) play(v);
+    });
+  } else {
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.isIntersecting ? play(e.target) : e.target.pause(); });
+    }, { rootMargin: '200px 0px' });
+    clips.forEach(function (v) { seen.observe(v); });
+  }
 </script>
 </body>
 </html>

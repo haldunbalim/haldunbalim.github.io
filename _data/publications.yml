@@ -1,14 +1,39 @@
-# Newest first.
+# Shown in this order (highlighted work first, then robotics, then the rest, roughly newest first).
 #
 #   authors   names as they should print. Append * for equal contribution, † for equal advising.
 #             Names listed in people.yml become links; the site owner's name is bolded.
 #   venue     short venue name, printed in italics before the year
-#   image     file in assets/img/pubs/ (optional)
+#   status    optional, printed after the year in grey, e.g. "under review", "in preparation"
+#   image     file in assets/img/pubs/ (optional; used when there is no `media`)
+#   media     list of tiles for the thumbnail column, see _includes/pub-media.html:
+#               - {video: /assets/media/x/y.mp4, label: "Real robot", wide: true}
+#               - {image: /assets/media/x/z.jpg}
+#             each .mp4 needs a same-named .jpg poster next to it
+#   media_cols  columns of the media grid (default 2); `wide` tiles span all of them
 #   selected  true -> shown by default; the rest appear under the "All" filter
 #   highlight true -> yellow background (use sparingly)
 #   award     award / recognition line (optional, Markdown)
 #   links     label: url, printed in this order
 #   tldr      one sentence (optional); with abstract (optional) it fills the "abstract" toggle
+
+- id: proggtp
+  # TODO: confirm the author list
+  title: "ProgGTP: Progression-Guided Online Learning from Action-Free Demonstrations"
+  authors: [Haldun Balim, Yilun Du†, Na Li†]
+  venue: ICML
+  year: 2027
+  status: in preparation
+  selected: true
+  highlight: true
+  media:
+    - {video: /assets/media/proggtp/align.mp4, label: Align}
+    - {video: /assets/media/proggtp/pickup.mp4, label: Pick up}
+    - {video: /assets/media/proggtp/pour.mp4, label: Pour}
+    - {video: /assets/media/proggtp/stack-bowls.mp4, label: Stack bowls}
+  tldr: >-
+    Expert demonstrations without action labels still show what progress looks like: ProgGTP learns a progression
+    critic from them, plans against it with a dynamics model learned from suboptimal play data, and imitates only
+    its own best plans, solving bimanual RoboDojo manipulation tasks from sparse success signals.
 
 - id: gtp
   title: Model-Based Online Decision Making via Generative Trajectory Planning
@@ -16,6 +41,12 @@
   venue: NeurIPS
   year: 2026
   image: gtp.jpg
+  media_cols: 3
+  media:
+    - {video: /assets/media/gtp/method.mp4, wide: true}
+    - {video: /assets/media/gtp/fetchpush.mp4, label: Push}
+    - {video: /assets/media/gtp/fetchpickandplace.mp4, label: Pick & Place}
+    - {video: /assets/media/gtp/fetchslide.mp4, label: Slide}
   selected: true
   highlight: true
   links:
@@ -45,6 +76,10 @@
   venue: ICML
   year: 2026
   image: mpdiffuser.jpg
+  media:
+    - {video: /assets/media/mpdiffuser/go2.mp4, label: Real Unitree Go2, wide: true}
+    - {video: /assets/media/mpdiffuser/kitchen.mp4, label: Franka Kitchen}
+    - {video: /assets/media/mpdiffuser/fetch.mp4, label: Fetch Pick & Place}
   selected: true
   highlight: true
   award: "Featured in Nebius.Science [ICML 2026: Papers That Matter](https://nebius.science/stories/icml-papers-that-matter)"
@@ -67,41 +102,19 @@
     planner. Empirically, we demonstrate consistent improvements over prior diffusion-based methods on unconstrained
     (D4RL) and constrained (DSRL) benchmarks, and validate practicality through deployment on a real quadrupedal robot.
 
-- id: ddpl
-  title: Decentralized Diffusion Policy Learning for Enhanced Exploration in Cooperative Multi-agent Reinforcement Learning
-  authors: [Yuyang Zhang, Haldun Balim, Na Li]
-  venue: arXiv preprint
-  year: 2026
-  image: ddpl.jpg
-  selected: true
-  links:
-    arXiv: https://arxiv.org/abs/2605.07101
-  tldr: >-
-    Gaussian policies cripple exploration in decentralized MARL as the number of agents grows; giving each agent a
-    diffusion policy, trained online with importance sampling score matching, restores multi-modal exploration.
-  abstract: >-
-    Cooperative multi-agent reinforcement learning (MARL) involves complex agent interactions and requires effective
-    exploration strategies. A prominent class of MARL algorithms, decentralized softmax policy gradient (DecSPG),
-    addresses this through energy-based policy updates. In practice, however, such energy-based policies are
-    intractable to maintain and are commonly projected onto the Gaussian policy class. In this work, we show that the
-    limited expressiveness of Gaussian policies severely hinders exploration in DecSPG, and this limitation worsens as
-    the number of agents grows. To address this issue, we propose decentralized diffusion policy learning (DDPL),
-    which parameterizes each agent's policy with a denoising diffusion probabilistic model, an expressive generative
-    model that captures multi-modal action distributions for enhanced exploration. DDPL enables efficient online
-    training of diffusion policies via importance sampling score matching (ISSM), a novel training method with
-    theoretical guarantee. We evaluate DDPL on representative continuous-action MARL benchmarks, including
-    multi-agent particle environment, multi-agent MuJoCo, IsaacLab, and JAX-reimplemented StarCraft multi-agent
-    challenge, and observe consistently improved performance.
-
 - id: block-pushing
   title: A Single Diffusion-Policy Controller for Multi-Task Block Pushing with Zero-Shot Sim-to-Real Transfer
   authors: [Haitong Ma, Haldun Balim, Yang Hu, Bo Dai, Na Li]
-  venue: arXiv preprint
+  venue: IEEE CDC
   year: 2026
   image: block-pushing.jpg
+  media:
+    - {video: /assets/media/block-pushing/real.mp4, label: "Real robot, zero-shot", wide: true}
+    - {video: /assets/media/block-pushing/sim.mp4, label: Simulation, wide: true}
   selected: true
   links:
     arXiv: https://arxiv.org/abs/2607.10892
+    project page: https://diffusionpolicyrl.site/
   tldr: >-
     One diffusion policy, trained from scratch with RL using reverse curricula and object-centric observations,
     pushes blocks of many shapes and transfers zero-shot to a real robot.
@@ -125,9 +138,15 @@
   venue: ICRA
   year: 2026
   image: diffusion-mpc.jpg
+  media:
+    - {video: /assets/media/diffusion-mpc/grass.mp4, label: Grass}
+    - {video: /assets/media/diffusion-mpc/push.mp4, label: Balancing}
+    - {video: /assets/media/diffusion-mpc/slope.mp4, label: Slope}
+    - {video: /assets/media/diffusion-mpc/grass2.mp4}
   selected: true
   links:
     arXiv: https://arxiv.org/abs/2510.04234
+    video: https://www.youtube.com/watch?v=GX4QhTBnTHo
     press: https://seas.harvard.edu/news/ai-powered-control-system-robots-legs
   tldr: >-
     A learned diffusion model serves as the dynamics prior inside MPC, so a legged robot can adapt to new rewards
@@ -149,6 +168,82 @@
     denoiser. Our design enables strong test-time adaptability, allowing the planner to adjust to new reward
     specifications without retraining. We validate Diffusion-MPC on real world, demonstrating strong locomotion and
     flexible adaptation.
+
+- id: valp
+  title: Planning with Value-Aware Learned Goals for Hierarchical Reinforcement Learning
+  authors: [Okan Araz*, Haldun Balim*, Na Li]
+  venue: ICLR
+  year: 2027
+  status: under review
+  selected: true
+  media:
+    - {video: /assets/media/valp/antmaze.mp4, label: AntMaze}
+    - {video: /assets/media/valp/antpush.mp4, label: AntPush}
+    - {video: /assets/media/valp/antfall.mp4, label: AntFall}
+    - {video: /assets/media/valp/antfourrooms.mp4, label: AntFourRooms}
+
+- id: steer
+  title: Diverse Low-Temperature Diffusion Sampling through Replica Exchange
+  authors: [Zoe Wu, Haldun Balim, Yilun Du]
+  venue: ICLR
+  year: 2027
+  status: under review
+  selected: true
+  media:
+    - {video: /assets/media/steer/lift.mp4, label: Lift}
+    - {video: /assets/media/steer/can.mp4, label: Can}
+    - {video: /assets/media/steer/square.mp4, label: Square}
+    - {video: /assets/media/steer/tool-hang.mp4, label: Tool Hang}
+  links:
+    project page: https://zoewu.com/STEER/
+    code: https://github.com/zoewuez/STEER
+  tldr: >-
+    Several diffusion chains at different sharpening strengths swap samples via energy-based acceptance, giving
+    verifier-free sampling that is both sharp and diverse; it raises success on Robomimic manipulation with the
+    same diffusion policy.
+  abstract: >-
+    Diffusion models achieve strong generative performance across domains. However, achieving high sample quality
+    under hard physical and dynamical constraints, as in protein design and robotic manipulation, remains
+    difficult. Existing inference-time methods either require a costly or unavailable verifier, or avoid a verifier
+    at the cost of reduced diversity. To relieve this tension, we introduce Score Tempering with Exchange between
+    Exploratory Replicas (STEER), a verifier-free inference-time method that replaces single-chain sharpening with
+    global search using multiple diffusion chains. During sampling, neighboring chains, each at different sharpening
+    strengths, exchange particles according to an energy-based acceptance rate, propagating exploration to
+    outputted samples. Across a diverse range of domains, from synthetic multimodal distributions to image
+    generation, STEER achieves a better fidelity-diversity trade-off and improves success rates on
+    continuous-control tasks in both verifier-based and verifier-free settings. Our findings suggest that effective
+    diffusion tempering requires going beyond local updates to population-based global search that enhance fidelity
+    and diversity.
+
+- id: ddpl
+  title: Decentralized Diffusion Policy Learning for Enhanced Exploration in Cooperative Multi-agent Reinforcement Learning
+  authors: [Yuyang Zhang, Haldun Balim, Na Li]
+  venue: arXiv preprint
+  year: 2026
+  image: ddpl.jpg
+  media:
+    # task clip from the Bi-DexHands README (PKU-MARL, Apache-2.0) -- illustrates the task, not a DDPL rollout
+    - {video: /assets/media/ddpl/shadow-hand-over.mp4, label: Shadow Hand Over, wide: true}
+    - {image: /assets/img/pubs/ddpl.jpg, wide: true}
+  selected: true
+  links:
+    arXiv: https://arxiv.org/abs/2605.07101
+  tldr: >-
+    Gaussian policies cripple exploration in decentralized MARL as the number of agents grows; giving each agent a
+    diffusion policy, trained online with importance sampling score matching, restores multi-modal exploration.
+  abstract: >-
+    Cooperative multi-agent reinforcement learning (MARL) involves complex agent interactions and requires effective
+    exploration strategies. A prominent class of MARL algorithms, decentralized softmax policy gradient (DecSPG),
+    addresses this through energy-based policy updates. In practice, however, such energy-based policies are
+    intractable to maintain and are commonly projected onto the Gaussian policy class. In this work, we show that the
+    limited expressiveness of Gaussian policies severely hinders exploration in DecSPG, and this limitation worsens as
+    the number of agents grows. To address this issue, we propose decentralized diffusion policy learning (DDPL),
+    which parameterizes each agent's policy with a denoising diffusion probabilistic model, an expressive generative
+    model that captures multi-modal action distributions for enhanced exploration. DDPL enables efficient online
+    training of diffusion policies via importance sampling score matching (ISSM), a novel training method with
+    theoretical guarantee. We evaluate DDPL on representative continuous-action MARL benchmarks, including
+    multi-agent particle environment, multi-agent MuJoCo, IsaacLab, and JAX-reimplemented StarCraft multi-agent
+    challenge, and observe consistently improved performance.
 
 - id: predictive-il
   title: A Model-Based Approach to Imitation Learning through Multi-Step Predictions

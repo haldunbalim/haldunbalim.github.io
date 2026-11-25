@@ -3,6 +3,9 @@
 - date: 2026-10-13
   text: "[Generative Trajectory Planning (GTP)](https://haldunbalim.github.io/GTPlanning/) will appear at **NeurIPS 2026**! Paper, code and models are out."
 
+- date: 2026-10-01   # TODO check the date (ICLR 2027 submission)
+  text: "Two papers under review at **ICLR 2027**: [STEER](https://zoewu.com/STEER/), replica-exchange sampling for diverse low-temperature diffusion, with Zoe Wu and Yilun Du; and VALP, planning with value-aware learned goals for hierarchical RL, with Okan Araz and Na Li."
+
 - date: 2026-07-12
   text: "New preprint with Haitong Ma, Yang Hu, Bo Dai and Na Li: [a single diffusion-policy controller](https://arxiv.org/abs/2607.10892) for multi-task block pushing, with zero-shot sim-to-real transfer."
 

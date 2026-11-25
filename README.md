@@ -7,7 +7,7 @@
 | Name, photo, contact links | `_data/profile.yml` |
 | Bio | `_includes/bio.md` |
 | News | `_data/news.yml` |
-| Papers | `_data/publications.yml` (thumbnails in `assets/img/pubs/`) |
+| Papers | `_data/publications.yml` (thumbnails in `assets/img/pubs/`, video clips + posters in `assets/media/<paper>/`) |
 | Co-author homepages | `_data/people.yml` |
 
 ## Local preview
