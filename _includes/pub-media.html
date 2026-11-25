@@ -18,8 +18,12 @@
   {%- for m in pub.media %}
   <figure class="media-cell{% if m.wide %} wide{% endif %}">
     {%- if m.video %}
+    {%- assign poster = m.video | replace: '.mp4', '.jpg' | relative_url %}
+    {%- comment %} The poster <img> sizes the tile: Safari ignores a video's poster when sizing it,
+        so an unloaded <video> would otherwise collapse to 300x150. The video covers the image. {% endcomment %}
+    <img class="sizer" src="{{ poster }}" alt="" aria-hidden="true">
     <video data-autoplay muted loop playsinline preload="none"
-           src="{{ m.video | relative_url }}" poster="{{ m.video | replace: '.mp4', '.jpg' | relative_url }}"
+           src="{{ m.video | relative_url }}" poster="{{ poster }}"
            {% if m.label %}aria-label="{{ m.label }}"{% endif %}></video>
     {%- else %}
     <img src="{{ m.image | relative_url }}" alt="{{ m.label }}" loading="lazy">
