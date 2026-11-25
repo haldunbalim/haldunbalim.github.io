@@ -13,7 +13,7 @@ body {
 a { color: #1772d0; text-decoration: none; }
 a:hover, a:focus { color: #f09228; }
 
-.page { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+.page { max-width: 880px; margin: 0 auto; padding: 0 16px; }
 section { padding: 0 2.5%; margin: 18px 0; }
 
 h2 { font-size: 22px; font-weight: 400; margin: 0; }
@@ -57,11 +57,22 @@ h2 { font-size: 22px; font-weight: 400; margin: 0; }
 .pubs[data-show="selected"] .not-selected { display: none; }
 .pub { display: flex; gap: 4%; align-items: flex-start; padding: 16px 2.5%; }
 .pub.highlight { background: #ffffd0; }
-.pub-img { flex: 0 0 26%; padding-top: 2px; }
-.pub-img img { width: 100%; display: block; border-radius: 4px; }
+.pub-img { flex: 0 0 32%; padding-top: 2px; }
+.pub-img > img { width: 100%; display: block; border-radius: 4px; }
+
+/* clip / image tiles in the thumbnail column (see _includes/pub-media.html) */
+.media-grid { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: 4px; }
+.media-cell { position: relative; margin: 0; border-radius: 4px; overflow: hidden; background: #f2f2f2; }
+.media-cell.wide { grid-column: 1 / -1; }
+.media-cell video, .media-cell img { display: block; width: 100%; height: auto; }
+.media-cell figcaption {
+  position: absolute; left: 4px; bottom: 4px; padding: 1px 6px; border-radius: 3px;
+  font-size: 11px; line-height: 1.35; color: #fff; background: rgba(0, 0, 0, 0.55); pointer-events: none;
+}
 .pub-text { flex: 1; min-width: 0; }
 .papertitle { font-weight: 700; }
 .award { color: #d0021b; font-weight: 700; }
+.status { color: #777; }
 .award a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 .linklike { font: inherit; color: #1772d0; background: none; border: 0; padding: 0; cursor: pointer; }
@@ -88,5 +99,5 @@ footer { text-align: right; font-size: 12px; color: #777; padding: 24px 2.5% 32p
   .intro-photo { width: 55%; max-width: 220px; }
   .pub { flex-direction: column; }
   .pub-img { flex-basis: auto; width: 100%; }
-  .pub-img img { max-width: 360px; margin: 0 auto 8px; }
+  .pub-img > img, .media-grid { max-width: 420px; margin: 0 auto 8px; }
 }

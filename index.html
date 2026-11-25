@@ -42,6 +42,10 @@ X</a></nav>
         <span class="news-text"><a href="https://haldunbalim.github.io/GTPlanning/">Generative Trajectory Planning (GTP)</a> will appear at <strong>NeurIPS 2026</strong>! Paper, code and models are out.</span>
       </div>
       <div class="news-item">
+        <span class="news-date">Oct 2026</span>
+        <span class="news-text">Two papers under review at <strong>ICLR 2027</strong>: <a href="https://zoewu.com/STEER/">STEER</a>, replica-exchange sampling for diverse low-temperature diffusion, with Zoe Wu and Yilun Du; and VALP, planning with value-aware learned goals for hierarchical RL, with Okan Araz and Na Li.</span>
+      </div>
+      <div class="news-item">
         <span class="news-date">Jul 2026</span>
         <span class="news-text">New preprint with Haitong Ma, Yang Hu, Bo Dai and Na Li: <a href="https://arxiv.org/abs/2607.10892">a single diffusion-policy controller</a> for multi-task block pushing, with zero-shot sim-to-real transfer.</span>
       </div>
@@ -113,7 +117,60 @@ X</a></nav>
 
   <section class="pubs" data-show="selected">
     <div class="pub highlight">
-      <div class="pub-img"><img src="/assets/img/pubs/gtp.jpg" alt="" loading="lazy"></div>
+      <div class="pub-img"><div class="media-grid" style="--cols: 2">
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/proggtp/align.mp4" poster="/assets/media/proggtp/align.jpg"
+           aria-label="Align"></video><figcaption>Align</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/proggtp/pickup.mp4" poster="/assets/media/proggtp/pickup.jpg"
+           aria-label="Pick up"></video><figcaption>Pick up</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/proggtp/pour.mp4" poster="/assets/media/proggtp/pour.jpg"
+           aria-label="Pour"></video><figcaption>Pour</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/proggtp/stack-bowls.mp4" poster="/assets/media/proggtp/stack-bowls.jpg"
+           aria-label="Stack bowls"></video><figcaption>Stack bowls</figcaption>
+  </figure>
+</div></div>
+      <div class="pub-text"><span class="papertitle">ProgGTP: Progression-Guided Online Learning from Action-Free Demonstrations</span><br>
+        <strong>Haldun Balim</strong>, <a href="https://yilundu.github.io">Yilun Du</a>†, <a href="https://nali.seas.harvard.edu">Na Li</a>†<br>
+        <em>ICML</em>, 2027 <span class="status">(in preparation)</span><br>
+        <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-proggtp">abstract</button>
+        
+        <div class="abstract" id="abs-proggtp" hidden><div class="tldr"><strong>TL;DR</strong> Expert demonstrations without action labels still show what progress looks like: ProgGTP learns a progression critic from them, plans against it with a dynamics model learned from suboptimal play data, and imitates only its own best plans, solving bimanual RoboDojo manipulation tasks from sparse success signals.</div>
+        </div>
+      </div>
+    </div>
+    <div class="pub highlight">
+      <div class="pub-img"><div class="media-grid" style="--cols: 3">
+  <figure class="media-cell wide">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/gtp/method.mp4" poster="/assets/media/gtp/method.jpg"
+           ></video>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/gtp/fetchpush.mp4" poster="/assets/media/gtp/fetchpush.jpg"
+           aria-label="Push"></video><figcaption>Push</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/gtp/fetchpickandplace.mp4" poster="/assets/media/gtp/fetchpickandplace.jpg"
+           aria-label="Pick & Place"></video><figcaption>Pick & Place</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/gtp/fetchslide.mp4" poster="/assets/media/gtp/fetchslide.jpg"
+           aria-label="Slide"></video><figcaption>Slide</figcaption>
+  </figure>
+</div></div>
       <div class="pub-text"><a class="papertitle" href="https://arxiv.org/abs/2610.18677">Model-Based Online Decision Making via Generative Trajectory Planning</a><br>
         <strong>Haldun Balim</strong>, <a href="https://yilundu.github.io">Yilun Du</a>†, <a href="https://nali.seas.harvard.edu">Na Li</a>†<br>
         <em>NeurIPS</em>, 2026<br>
@@ -124,7 +181,23 @@ X</a></nav>
       </div>
     </div>
     <div class="pub highlight">
-      <div class="pub-img"><img src="/assets/img/pubs/mpdiffuser.jpg" alt="" loading="lazy"></div>
+      <div class="pub-img"><div class="media-grid" style="--cols: 2">
+  <figure class="media-cell wide">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/mpdiffuser/go2.mp4" poster="/assets/media/mpdiffuser/go2.jpg"
+           aria-label="Real Unitree Go2"></video><figcaption>Real Unitree Go2</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/mpdiffuser/kitchen.mp4" poster="/assets/media/mpdiffuser/kitchen.jpg"
+           aria-label="Franka Kitchen"></video><figcaption>Franka Kitchen</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/mpdiffuser/fetch.mp4" poster="/assets/media/mpdiffuser/fetch.jpg"
+           aria-label="Fetch Pick & Place"></video><figcaption>Fetch Pick & Place</figcaption>
+  </figure>
+</div></div>
       <div class="pub-text"><a class="papertitle" href="https://proceedings.mlr.press/v306/balim26a.html">Model-Based Diffusion Sampling for Predictive Control in Offline Decision Making</a><br>
         <strong>Haldun Balim</strong>, <a href="https://nali.seas.harvard.edu">Na Li</a>, <a href="https://yilundu.github.io">Yilun Du</a><br>
         <em>ICML</em>, 2026<br><span class="award">Featured in Nebius.Science <a href="https://nebius.science/stories/icml-papers-that-matter">ICML 2026: Papers That Matter</a></span><br>
@@ -135,35 +208,137 @@ X</a></nav>
       </div>
     </div>
     <div class="pub">
-      <div class="pub-img"><img src="/assets/img/pubs/ddpl.jpg" alt="" loading="lazy"></div>
+      <div class="pub-img"><div class="media-grid" style="--cols: 2">
+  <figure class="media-cell wide">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/block-pushing/real.mp4" poster="/assets/media/block-pushing/real.jpg"
+           aria-label="Real robot, zero-shot"></video><figcaption>Real robot, zero-shot</figcaption>
+  </figure>
+  <figure class="media-cell wide">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/block-pushing/sim.mp4" poster="/assets/media/block-pushing/sim.jpg"
+           aria-label="Simulation"></video><figcaption>Simulation</figcaption>
+  </figure>
+</div></div>
+      <div class="pub-text"><a class="papertitle" href="https://arxiv.org/abs/2607.10892">A Single Diffusion-Policy Controller for Multi-Task Block Pushing with Zero-Shot Sim-to-Real Transfer</a><br>
+        Haitong Ma, <strong>Haldun Balim</strong>, Yang Hu, Bo Dai, <a href="https://nali.seas.harvard.edu">Na Li</a><br>
+        <em>IEEE CDC</em>, 2026<br>
+        <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-block-pushing">abstract</button> / 
+        <a href="https://arxiv.org/abs/2607.10892">arXiv</a> / <a href="https://diffusionpolicyrl.site/">project page</a>
+        <div class="abstract" id="abs-block-pushing" hidden><div class="tldr"><strong>TL;DR</strong> One diffusion policy, trained from scratch with RL using reverse curricula and object-centric observations, pushes blocks of many shapes and transfers zero-shot to a real robot.</div><div class="abstract-body">Diffusion policies have shown promising empirical performance in representing and learning complex maneuvers for robots using behavior cloning (BC). In this paper, we explore training diffusion policies from scratch using reinforcement learning (RL) for multi-task robotic manipulation. Specifically, we aim to train a single diffusion policy for block-pushing tasks with multiple shapes. The proposed framework features a simple policy loss function, which is a reweighted evidence lower bound used in BC-based diffusion policy training and can seamlessly serve as the policy learning module in RL algorithms. To address the exploration challenges arising from the absence of demonstrations, we incorporate reverse curriculum generation and objective-centric representations. Combined with the expressiveness of diffusion policies, our design supports learning of multi-task block-pushing policies in our sparse-reward simulation setting. We further evaluate whether the trained diffusion policy transfers in zero-shot to real-world tasks under varying environmental conditions including goal positions, block shapes, block weights and surface friction, providing evidence that this pipeline can transfer to our real-world block-pushing setup under the tested variations.</div>
+        </div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-img"><div class="media-grid" style="--cols: 2">
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/diffusion-mpc/grass.mp4" poster="/assets/media/diffusion-mpc/grass.jpg"
+           aria-label="Grass"></video><figcaption>Grass</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/diffusion-mpc/push.mp4" poster="/assets/media/diffusion-mpc/push.jpg"
+           aria-label="Balancing"></video><figcaption>Balancing</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/diffusion-mpc/slope.mp4" poster="/assets/media/diffusion-mpc/slope.jpg"
+           aria-label="Slope"></video><figcaption>Slope</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/diffusion-mpc/grass2.mp4" poster="/assets/media/diffusion-mpc/grass2.jpg"
+           ></video>
+  </figure>
+</div></div>
+      <div class="pub-text"><a class="papertitle" href="https://arxiv.org/abs/2510.04234">Flexible Locomotion Learning with Diffusion Model Predictive Control</a><br>
+        Runhan Huang, <strong>Haldun Balim</strong>, <a href="https://hankyang.seas.harvard.edu">Heng Yang</a>, <a href="https://yilundu.github.io">Yilun Du</a><br>
+        <em>ICRA</em>, 2026<br>
+        <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-diffusion-mpc">abstract</button> / 
+        <a href="https://arxiv.org/abs/2510.04234">arXiv</a> / <a href="https://www.youtube.com/watch?v=GX4QhTBnTHo">video</a> / <a href="https://seas.harvard.edu/news/ai-powered-control-system-robots-legs">press</a>
+        <div class="abstract" id="abs-diffusion-mpc" hidden><div class="tldr"><strong>TL;DR</strong> A learned diffusion model serves as the dynamics prior inside MPC, so a legged robot can adapt to new rewards and constraints at test time without retraining.</div><div class="abstract-body">Legged locomotion demands controllers that are both robust and adaptable, while remaining compatible with task and safety considerations. However, model-free reinforcement learning (RL) methods often yield a fixed policy that can be difficult to adapt to new behaviors at test time. In contrast, Model Predictive Control (MPC) provides a natural approach to flexible behavior synthesis by incorporating different objectives and constraints directly into its optimization process. However, classical MPC relies on accurate dynamics models, which are often difficult to obtain in complex environments and typically require simplifying assumptions. We present Diffusion-MPC, which leverages a learned generative diffusion model as an approximate dynamics prior for planning, enabling flexible test-time adaptation through reward and constraint based optimization. Diffusion-MPC jointly predicts future states and actions; at each reverse step, we incorporate reward planning and impose constraint projection, yielding trajectories that satisfy task objectives while remaining within physical limits. To obtain a planning model that adapts beyond imitation pretraining, we introduce an interactive training algorithm for diffusion based planner: we execute our reward-and-constraint planner in environment, then filter and reweight the collected trajectories by their realized returns before updating the denoiser. Our design enables strong test-time adaptability, allowing the planner to adjust to new reward specifications without retraining. We validate Diffusion-MPC on real world, demonstrating strong locomotion and flexible adaptation.</div>
+        </div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-img"><div class="media-grid" style="--cols: 2">
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/valp/antmaze.mp4" poster="/assets/media/valp/antmaze.jpg"
+           aria-label="AntMaze"></video><figcaption>AntMaze</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/valp/antpush.mp4" poster="/assets/media/valp/antpush.jpg"
+           aria-label="AntPush"></video><figcaption>AntPush</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/valp/antfall.mp4" poster="/assets/media/valp/antfall.jpg"
+           aria-label="AntFall"></video><figcaption>AntFall</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/valp/antfourrooms.mp4" poster="/assets/media/valp/antfourrooms.jpg"
+           aria-label="AntFourRooms"></video><figcaption>AntFourRooms</figcaption>
+  </figure>
+</div></div>
+      <div class="pub-text"><span class="papertitle">Planning with Value-Aware Learned Goals for Hierarchical Reinforcement Learning</span><br>
+        Okan Araz*, <strong>Haldun Balim*</strong>, <a href="https://nali.seas.harvard.edu">Na Li</a><br>
+        <em>ICLR</em>, 2027 <span class="status">(under review)</span><br>
+        
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-img"><div class="media-grid" style="--cols: 2">
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/steer/lift.mp4" poster="/assets/media/steer/lift.jpg"
+           aria-label="Lift"></video><figcaption>Lift</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/steer/can.mp4" poster="/assets/media/steer/can.jpg"
+           aria-label="Can"></video><figcaption>Can</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/steer/square.mp4" poster="/assets/media/steer/square.jpg"
+           aria-label="Square"></video><figcaption>Square</figcaption>
+  </figure>
+  <figure class="media-cell">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/steer/tool-hang.mp4" poster="/assets/media/steer/tool-hang.jpg"
+           aria-label="Tool Hang"></video><figcaption>Tool Hang</figcaption>
+  </figure>
+</div></div>
+      <div class="pub-text"><a class="papertitle" href="https://zoewu.com/STEER/">Diverse Low-Temperature Diffusion Sampling through Replica Exchange</a><br>
+        <a href="https://zoewu.com">Zoe Wu</a>, <strong>Haldun Balim</strong>, <a href="https://yilundu.github.io">Yilun Du</a><br>
+        <em>ICLR</em>, 2027 <span class="status">(under review)</span><br>
+        <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-steer">abstract</button> / 
+        <a href="https://zoewu.com/STEER/">project page</a> / <a href="https://github.com/zoewuez/STEER">code</a>
+        <div class="abstract" id="abs-steer" hidden><div class="tldr"><strong>TL;DR</strong> Several diffusion chains at different sharpening strengths swap samples via energy-based acceptance, giving verifier-free sampling that is both sharp and diverse; it raises success on Robomimic manipulation with the same diffusion policy.</div><div class="abstract-body">Diffusion models achieve strong generative performance across domains. However, achieving high sample quality under hard physical and dynamical constraints, as in protein design and robotic manipulation, remains difficult. Existing inference-time methods either require a costly or unavailable verifier, or avoid a verifier at the cost of reduced diversity. To relieve this tension, we introduce Score Tempering with Exchange between Exploratory Replicas (STEER), a verifier-free inference-time method that replaces single-chain sharpening with global search using multiple diffusion chains. During sampling, neighboring chains, each at different sharpening strengths, exchange particles according to an energy-based acceptance rate, propagating exploration to outputted samples. Across a diverse range of domains, from synthetic multimodal distributions to image generation, STEER achieves a better fidelity-diversity trade-off and improves success rates on continuous-control tasks in both verifier-based and verifier-free settings. Our findings suggest that effective diffusion tempering requires going beyond local updates to population-based global search that enhance fidelity and diversity.</div>
+        </div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-img"><div class="media-grid" style="--cols: 2">
+  <figure class="media-cell wide">
+    <video data-autoplay muted loop playsinline preload="none"
+           src="/assets/media/ddpl/shadow-hand-over.mp4" poster="/assets/media/ddpl/shadow-hand-over.jpg"
+           aria-label="Shadow Hand Over"></video><figcaption>Shadow Hand Over</figcaption>
+  </figure>
+  <figure class="media-cell wide">
+    <img src="/assets/img/pubs/ddpl.jpg" alt="" loading="lazy">
+  </figure>
+</div></div>
       <div class="pub-text"><a class="papertitle" href="https://arxiv.org/abs/2605.07101">Decentralized Diffusion Policy Learning for Enhanced Exploration in Cooperative Multi-agent Reinforcement Learning</a><br>
         Yuyang Zhang, <strong>Haldun Balim</strong>, <a href="https://nali.seas.harvard.edu">Na Li</a><br>
         <em>arXiv preprint</em>, 2026<br>
         <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-ddpl">abstract</button> / 
         <a href="https://arxiv.org/abs/2605.07101">arXiv</a>
         <div class="abstract" id="abs-ddpl" hidden><div class="tldr"><strong>TL;DR</strong> Gaussian policies cripple exploration in decentralized MARL as the number of agents grows; giving each agent a diffusion policy, trained online with importance sampling score matching, restores multi-modal exploration.</div><div class="abstract-body">Cooperative multi-agent reinforcement learning (MARL) involves complex agent interactions and requires effective exploration strategies. A prominent class of MARL algorithms, decentralized softmax policy gradient (DecSPG), addresses this through energy-based policy updates. In practice, however, such energy-based policies are intractable to maintain and are commonly projected onto the Gaussian policy class. In this work, we show that the limited expressiveness of Gaussian policies severely hinders exploration in DecSPG, and this limitation worsens as the number of agents grows. To address this issue, we propose decentralized diffusion policy learning (DDPL), which parameterizes each agent's policy with a denoising diffusion probabilistic model, an expressive generative model that captures multi-modal action distributions for enhanced exploration. DDPL enables efficient online training of diffusion policies via importance sampling score matching (ISSM), a novel training method with theoretical guarantee. We evaluate DDPL on representative continuous-action MARL benchmarks, including multi-agent particle environment, multi-agent MuJoCo, IsaacLab, and JAX-reimplemented StarCraft multi-agent challenge, and observe consistently improved performance.</div>
-        </div>
-      </div>
-    </div>
-    <div class="pub">
-      <div class="pub-img"><img src="/assets/img/pubs/block-pushing.jpg" alt="" loading="lazy"></div>
-      <div class="pub-text"><a class="papertitle" href="https://arxiv.org/abs/2607.10892">A Single Diffusion-Policy Controller for Multi-Task Block Pushing with Zero-Shot Sim-to-Real Transfer</a><br>
-        Haitong Ma, <strong>Haldun Balim</strong>, Yang Hu, Bo Dai, <a href="https://nali.seas.harvard.edu">Na Li</a><br>
-        <em>arXiv preprint</em>, 2026<br>
-        <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-block-pushing">abstract</button> / 
-        <a href="https://arxiv.org/abs/2607.10892">arXiv</a>
-        <div class="abstract" id="abs-block-pushing" hidden><div class="tldr"><strong>TL;DR</strong> One diffusion policy, trained from scratch with RL using reverse curricula and object-centric observations, pushes blocks of many shapes and transfers zero-shot to a real robot.</div><div class="abstract-body">Diffusion policies have shown promising empirical performance in representing and learning complex maneuvers for robots using behavior cloning (BC). In this paper, we explore training diffusion policies from scratch using reinforcement learning (RL) for multi-task robotic manipulation. Specifically, we aim to train a single diffusion policy for block-pushing tasks with multiple shapes. The proposed framework features a simple policy loss function, which is a reweighted evidence lower bound used in BC-based diffusion policy training and can seamlessly serve as the policy learning module in RL algorithms. To address the exploration challenges arising from the absence of demonstrations, we incorporate reverse curriculum generation and objective-centric representations. Combined with the expressiveness of diffusion policies, our design supports learning of multi-task block-pushing policies in our sparse-reward simulation setting. We further evaluate whether the trained diffusion policy transfers in zero-shot to real-world tasks under varying environmental conditions including goal positions, block shapes, block weights and surface friction, providing evidence that this pipeline can transfer to our real-world block-pushing setup under the tested variations.</div>
-        </div>
-      </div>
-    </div>
-    <div class="pub">
-      <div class="pub-img"><img src="/assets/img/pubs/diffusion-mpc.jpg" alt="" loading="lazy"></div>
-      <div class="pub-text"><a class="papertitle" href="https://arxiv.org/abs/2510.04234">Flexible Locomotion Learning with Diffusion Model Predictive Control</a><br>
-        Runhan Huang, <strong>Haldun Balim</strong>, <a href="https://hankyang.seas.harvard.edu">Heng Yang</a>, <a href="https://yilundu.github.io">Yilun Du</a><br>
-        <em>ICRA</em>, 2026<br>
-        <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-diffusion-mpc">abstract</button> / 
-        <a href="https://arxiv.org/abs/2510.04234">arXiv</a> / <a href="https://seas.harvard.edu/news/ai-powered-control-system-robots-legs">press</a>
-        <div class="abstract" id="abs-diffusion-mpc" hidden><div class="tldr"><strong>TL;DR</strong> A learned diffusion model serves as the dynamics prior inside MPC, so a legged robot can adapt to new rewards and constraints at test time without retraining.</div><div class="abstract-body">Legged locomotion demands controllers that are both robust and adaptable, while remaining compatible with task and safety considerations. However, model-free reinforcement learning (RL) methods often yield a fixed policy that can be difficult to adapt to new behaviors at test time. In contrast, Model Predictive Control (MPC) provides a natural approach to flexible behavior synthesis by incorporating different objectives and constraints directly into its optimization process. However, classical MPC relies on accurate dynamics models, which are often difficult to obtain in complex environments and typically require simplifying assumptions. We present Diffusion-MPC, which leverages a learned generative diffusion model as an approximate dynamics prior for planning, enabling flexible test-time adaptation through reward and constraint based optimization. Diffusion-MPC jointly predicts future states and actions; at each reverse step, we incorporate reward planning and impose constraint projection, yielding trajectories that satisfy task objectives while remaining within physical limits. To obtain a planning model that adapts beyond imitation pretraining, we introduce an interactive training algorithm for diffusion based planner: we execute our reward-and-constraint planner in environment, then filter and reweight the collected trajectories by their realized returns before updating the denoiser. Our design enables strong test-time adaptability, allowing the planner to adjust to new reward specifications without retraining. We validate Diffusion-MPC on real world, demonstrating strong locomotion and flexible adaptation.</div>
         </div>
       </div>
     </div>
@@ -290,6 +465,23 @@ X</a></nav>
       });
     });
   });
+
+  // Paper clips: play while on screen, pause when scrolled away. With reduced motion
+  // they stay on their poster frame and play on click instead.
+  var clips = document.querySelectorAll('video[data-autoplay]');
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  if (still || !('IntersectionObserver' in window)) {
+    clips.forEach(function (v) {
+      v.addEventListener('click', function () { v.paused ? play(v) : v.pause(); });
+      if (!still) play(v);
+    });
+  } else {
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.isIntersecting ? play(e.target) : e.target.pause(); });
+    }, { rootMargin: '200px 0px' });
+    clips.forEach(function (v) { seen.observe(v); });
+  }
 </script>
 </body>
 </html>
