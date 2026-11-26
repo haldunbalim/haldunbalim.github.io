@@ -58,7 +58,11 @@
         {%- if first %}<a class="papertitle" href="{{ first[1] | relative_url }}">{{ pub.title }}</a>
         {%- else %}<span class="papertitle">{{ pub.title }}</span>{% endif %}<br>
         {% include authors.html authors=pub.authors %}<br>
+        {%- if pub.venue %}
         <em>{{ pub.venue }}</em>, {{ pub.year }}{% if pub.status %} <span class="status">({{ pub.status }})</span>{% endif %}<br>
+        {%- else %}
+        <em>{{ pub.status }}</em><br>
+        {%- endif %}
         {%- if pub.award %}<span class="award">{{ pub.award | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span><br>{% endif %}
         {%- if pub.abstract or pub.tldr %}
         <button type="button" class="linklike" aria-expanded="false" aria-controls="abs-{{ pub.id }}">abstract</button>

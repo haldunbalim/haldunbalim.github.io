@@ -3,7 +3,8 @@
 #   authors   names as they should print. Append * for equal contribution, † for equal advising.
 #             Names listed in people.yml become links; the site owner's name is bolded.
 #   venue     short venue name, printed in italics before the year
-#   status    optional, printed after the year in grey, e.g. "under review", "in preparation"
+#   status    optional, printed after the year in grey, e.g. "under review", "in preparation";
+#             with no venue/year it is printed on its own
 #   image     file in assets/img/pubs/ (optional; used when there is no `media`)
 #   media     list of tiles for the thumbnail column, see _includes/pub-media.html:
 #               - {video: /assets/media/x/y.mp4, label: "Real robot", wide: true}
@@ -19,9 +20,7 @@
 - id: proggtp
   # TODO: confirm the author list
   title: "ProgGTP: Progression-Guided Online Learning from Action-Free Demonstrations"
-  authors: [Haldun Balim, Yilun Du†, Na Li†]
-  venue: ICML
-  year: 2027
+  authors: [Haldun Balim, Na Li†, Yilun Du†]
   status: in preparation
   selected: true
   highlight: true
